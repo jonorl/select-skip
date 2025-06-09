@@ -57,12 +57,12 @@ const DemoFooter = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-3 text-gray-600 text-sm sm:text-base">
                 <MapPin className="w-5 h-5 text-emerald-600" />
-                <span>123 Waste St, Lowestoft, NR32 1AB</span>
+                <span>44 The Pantiles, Tunbridge Wells, Kent, United Kingdom, TN2 5TN</span>
               </li>
               <li className="flex items-center space-x-3 text-gray-600 text-sm sm:text-base">
                 <Phone className="w-5 h-5 text-emerald-600" />
-                <a href="tel:+441502123456" className="hover:text-emerald-600 transition-colors">
-                  +44 1502 123 456
+                <a href="tel:01892 544 700" className="hover:text-emerald-600 transition-colors">
+                  01892 544 700
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-gray-600 text-sm sm:text-base">

@@ -6,7 +6,7 @@ import { MapPin, Trash2, Truck, Shield, Calendar, CreditCard, CheckCircle, Alert
 
 // Demo header / footers (not in scope)
 import DemoUnderHeader from './components/DemoUnderHeader'
-import DemoFooter from './components/DemoUnderHeader'
+import DemoFooter from './components/DemoFooter'
 
 // Utils
 import calculatePrice from './calculatePrice';
