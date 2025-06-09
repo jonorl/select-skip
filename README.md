@@ -45,6 +45,7 @@ Live Demo: https://select-skip.netlify.app/
 
 ## 🗺️ Project Structure
 
+```
 src/
 ├── components/
 │ ├── DemoUnderHeader.jsx
@@ -52,6 +53,7 @@ src/
 ├── utils
 ├── App.jsx
 └── main.jsx
+```
 
 ---
 
@@ -90,8 +92,11 @@ npm run dev
 ## 👤 Author
 
 Jonathan Orlowski
+
 jonorl@gmail.com
+
 [LinkedIn](https://www.linkedin.com/in/jonathan-orlowski-58910b21/)
+
 [GitHub](https://github.com/jonorl)
 
 ## 📄 License
