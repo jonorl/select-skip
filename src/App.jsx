@@ -1,18 +1,30 @@
+// React hook handlers
+
 import { useState, useEffect } from 'react';
+// Lucide React icons
 import { MapPin, Trash2, Truck, Shield, Calendar, CreditCard, CheckCircle, AlertTriangle, ArrowRight } from 'lucide-react';
+
+// Demo header / footers (not in scope)
 import DemoUnderHeader from './components/DemoUnderHeader'
 import DemoFooter from './components/DemoUnderHeader'
 
+// Utils
+import calculatePrice from './calculatePrice';
+
+// Hardcoded data for the test (use .env or adjust accordingly)
 const APIHOST = 'https://app.wewantwaste.co.uk'
 const SAMPLEPARAMS = 'by-location?postcode=NR32&area=Lowestoft'
 
 const SkipHireRedesign = () => {
-  const [skipData, setSkipData] = useState([]);
-  const [selectedSkip, setSelectedSkip] = useState(null);
-  const [currentStep, setCurrentStep] = useState(2); // Starting at "Select Skip" step
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
+  // Hooks
+  const [skipData, setSkipData] = useState([]); // Data from API Fetch
+  const [selectedSkip, setSelectedSkip] = useState(null); // Skip selector
+  const [currentStep, setCurrentStep] = useState(2); // Starting at "Select Skip" step
+  const [isLoading, setIsLoading] = useState(false); // Spinner 
+  const [error, setError] = useState(null); // Error hanlder
+
+  // Fetch data from API and handle errors if any
   const fetchData = async () => {
     setIsLoading(true);
     setError(null);
@@ -32,10 +44,7 @@ const SkipHireRedesign = () => {
     fetchData();
   }, []);
 
-  const calculatePrice = (priceBeforeVat, vat) => {
-    return Math.round(priceBeforeVat * (1 + vat / 100));
-  };
-
+  // Load icons into array
   const steps = [
     { icon: MapPin, label: 'Postcode', active: true },
     { icon: Trash2, label: 'Waste Type', active: true },
@@ -45,6 +54,7 @@ const SkipHireRedesign = () => {
     { icon: CreditCard, label: 'Payment', active: false }
   ];
 
+  // Fucntion to select desired skip using hook
   const handleSkipSelect = (skip) => {
     setSelectedSkip(skip);
   };
@@ -57,6 +67,7 @@ const SkipHireRedesign = () => {
         {/* Progress Steps */}
         <div className="max-w-8xl mx-auto px-4 py-8">
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+            {/* Choose icons according to step */}
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isCompleted = index < currentStep;
@@ -72,7 +83,7 @@ const SkipHireRedesign = () => {
                     }}
                     disabled={index > currentStep}
                     className={`flex items-center space-x-3 px-4 py-3 rounded-full transition-all focus:outline-none
-    ${isCompleted ? 'bg-emerald-100 text-emerald-700 cursor-pointer hover:bg-emerald-200' :
+                    ${isCompleted ? 'bg-emerald-100 text-emerald-700 cursor-pointer hover:bg-emerald-200' :
                         isCurrent ? 'bg-emerald-500 text-white shadow-lg cursor-default' :
                           'bg-gray-100 text-gray-400 cursor-not-allowed'
                       }`}
@@ -98,6 +109,7 @@ const SkipHireRedesign = () => {
 
           {/* Main Content */}
           <div className="max-w-7xl mx-auto">
+            {/* Placeholder Postocode search (not in scope) */}
             {currentStep === 0 && (
               <div className="text-center py-20">
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Postcode Step</h2>
@@ -111,6 +123,7 @@ const SkipHireRedesign = () => {
               </div>
             )}
 
+            {/* Placeholder Waste Type search (not in scope) */}
             {currentStep === 1 && (
               <div className="text-center py-20">
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">Waste Type Step</h2>
@@ -123,11 +136,12 @@ const SkipHireRedesign = () => {
                 </button>
               </div>
             )}
-
+            {/* If step is "Select Skip" */}
             {currentStep === 2 && (
               <>
 
                 <div className="text-center mb-10">
+                  {/* Instruction message */}
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">
                     Choose Your Perfect Skip Size
                   </h2>
@@ -165,6 +179,7 @@ const SkipHireRedesign = () => {
 
                 {/* Skip Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {/* Mapping the skip data to iterate through each skip coming from API */}
                   {skipData.map((skip) => {
                     const finalPrice = calculatePrice(skip.price_before_vat, skip.vat);
                     const isSelected = selectedSkip?.id === skip.id;
@@ -265,6 +280,7 @@ const SkipHireRedesign = () => {
         {/* Footer Info */}
         <div className="bg-gray-50 mt-16">
           <div className="max-w-7xl mx-auto px-4 py-12">
+            {/* Icons and messages */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div className="flex flex-col items-center">
                 <div className="bg-emerald-100 p-4 rounded-full mb-4">
