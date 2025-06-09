@@ -9,7 +9,7 @@ import DemoUnderHeader from './components/DemoUnderHeader'
 import DemoFooter from './components/DemoFooter'
 
 // Utils
-import calculatePrice from './calculatePrice';
+import calculatePrice from './utils/calculatePrice';
 
 // Hardcoded data for the test (use .env or adjust accordingly)
 const APIHOST = 'https://app.wewantwaste.co.uk'
