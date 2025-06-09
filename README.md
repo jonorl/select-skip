@@ -1,12 +1,100 @@
-# React + Vite
+# Skip Hire Frontend Redesign
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a front-end redesign project for a skip hire service page. The goal was to modernize the user interface while preserving functionality and improving overall UX, responsiveness, and code maintainability.
 
-Currently, two official plugins are available:
+> 💡 This demo was created as part of a front-end coding test for a job application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🧠 Project Goals
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Replace the legacy skip selection page with a completely new UI
+- Improve responsiveness (mobile + desktop)
+- Maintain core functionality (skip selection, step navigation)
+- Focus on clean, modular React code and UX clarity
+
+---
+
+## 📸 Preview
+
+![skip-hire-demo](public/Screenshot%202025-06-09%20151617.png) 
+
+Live Demo: https://select-skip.netlify.app/
+
+---
+
+## 🚀 Features
+
+- ✅ Responsive design with Tailwind CSS
+- ✅ Step-based UI flow (Postcode → Waste Type → Select Skip)
+- ✅ Interactive skip selection cards
+- ✅ API integration (skip sizes/prices by postcode)
+- ✅ Reusable components (`DemoUnderHeader`, `DemoFooter`)
+- ✅ Loading and error states handled gracefully
+
+---
+
+## 📦 Tech Stack
+
+- React 19
+- Tailwind v4 CSS
+- Lucide React Icons
+- Deployed using [Vite](https://vitejs.dev/)
+
+---
+
+## 🗺️ Project Structure
+
+src/
+├── components/
+│ ├── DemoUnderHeader.jsx
+│ └── DemoFooter.jsx
+├── utils
+├── App.jsx
+└── main.jsx
+
+---
+
+## 🔧 API Used
+
+Skip data is fetched from:
+
+GET https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft
+
+---
+
+## 🧪 Usage (for reviewer)
+
+1. Run the app locally:
+
+```bash
+npm install
+npm run dev
+```
+
+1. Interact with the demo:
+- Navigate steps by clicking in the progress bar
+
+- Select a skip to proceed
+
+- Placeholder steps for postcode and waste type are included
+
+## 🗺️ Notes
+
+- This is a front-end prototype; functionality like form validation, backend logic, and real payment flow are out of scope.
+
+- The design and layout were created from scratch for demo purposes only.
+
+- The current postcode (NR32) and area (Lowestoft) are hardcoded for testing.
+
+## 👤 Author
+
+Jonathan Orlowski
+jonorl@gmail.com
+[LinkedIn](https://www.linkedin.com/in/jonathan-orlowski-58910b21/)
+[GitHub](https://github.com/jonorl)
+
+## 📄 License
+
+This project is for demonstration and evaluation purposes only.
+
