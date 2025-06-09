@@ -15,6 +15,24 @@ This is a front-end redesign project for a skip hire service page. The goal was 
 
 ---
 
+## 🗺️ Notes
+
+- As per the scope of the project, the focus was on the "skip hire" section. The images 
+which looked like old PC rendered pictures from the 90s were not included as they were not
+part of the API backend data provided either. I think tailwind gives this new frontend a
+nice professional look themed with an emerald green which is a soft colour that many
+companies related to waste management prefer to handle. Warnings are shown in an orange tone and the bottom bar when selecting a skip was removed as it's just navigational noise.
+
+- From a ui perspective you may want to "force" the user to scroll down to see all the available options for skips. The whole VAT / non-vat was specified as there may be B2B or 
+B2C customers hiring skips
+
+- Although not in scope, I've added a header and footer to make things more visually appealing. Mobile responsiveness has been tested.
+
+- From a code maintainability only the absolutely essential has been hardcoded, and given
+the size of the project, most components were left on App.jsx file and only the header/footer which are out of scope were removed to a separate component directory. I could've left the calculate VAT function in the main area, but in terms of scalability, I believe it's a good idea to start with a utils directory and separate these functions.
+
+- Error handling coming from the API endpoint has been considered, as well as a spinner loader to alert the user of a potential error or just a delay in loading the data.
+
 ## 📸 Preview
 
 ![skip-hire-demo](public/Screenshot%202025-06-09%20151617.png) 
@@ -80,14 +98,6 @@ npm run dev
 - Select a skip to proceed
 
 - Placeholder steps for postcode and waste type are included
-
-## 🗺️ Notes
-
-- This is a front-end prototype; functionality like form validation, backend logic, and real payment flow are out of scope.
-
-- The design and layout were created from scratch for demo purposes only.
-
-- The current postcode (NR32) and area (Lowestoft) are hardcoded for testing.
 
 ## 👤 Author
 
